@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
+const urlSanitizer = require('./utils/sanitizerUrl')
 
 const dir = path.join(__dirname, 'relatorios')
 if (!fs.existsSync(dir)) {
@@ -47,7 +48,7 @@ const urls = ['https://pagespeed.web.dev/', 'https://google.com'];
         console.log(dir)
         // Capturando a pagina
         await page.screenshot({
-            path: dir.toString() + '/' + site.replace('https://', '').replace(/\./gi, '_').replace(/\//gi, '_') + '.png',
+            path: urlSanitizer(site),
             fullPage: true
         })
     }
