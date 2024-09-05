@@ -1,0 +1,8 @@
+# Dependências do Node.js
+/node_modules
+
+# Arquivos de IDE
+.vscode/
+.idea/
+
+/src/relatorios
